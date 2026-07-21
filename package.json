@@ -9,7 +9,7 @@
     "html-validator": "^6.0.1",
     "inline-source": "^8.0.3",
     "standard": "^17.1.2",
-    "stylelint": "^17.14.0",
+    "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0"
   }
 }
