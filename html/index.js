@@ -400,6 +400,9 @@ function generateTestcaseSingleResultElement (currentTestResult, tableName, id, 
   commonTestTextContent += '<h1 class="test-section">Feedback</h1><label>Write your feedback for ' + currentTestResult.testID.id + ' test case</label>'
   commonTestTextContent += '<textarea style="width: 100%; margin: 0 auto;" rows = "5" id="source-' + tableName + '-' + currentTestResult.testID.id + '" type="text"></textarea>'
 
+  commonTestTextContent += '<h1 class="test-section">Feedback Response</h1><label>Write your feedback response for ' + currentTestResult.testID.id + ' test case</label>'
+  commonTestTextContent += '<textarea style="width: 100%; margin: 0 auto;" rows = "5" id="response-' + tableName + '-' + currentTestResult.testID.id + '" type="text"></textarea>'
+
   commonTestTextContent += '<h1 class="test-section">Non-Compliant objects</h1>'
   commonTestTextContent += createReasonTableAllTypes(jsonObjNonCompliant)
   commonTestTextContent += '<h1 class="test-section">Compliant objects</h1>'
@@ -741,6 +744,12 @@ function downloadjsonHandler () { // eslint-disable-line no-unused-vars
       const data = document.getElementById(keydict)
       if (data !== null) {
         dict[keydict] = data.value
+      }
+      // Also save feedback responses
+      const responseKeydict = 'response-' + tablesName[i] + '-' + key
+      const responseData = document.getElementById(responseKeydict)
+      if (responseData !== null) {
+        dict[responseKeydict] = responseData.value
       }
     }
   }
